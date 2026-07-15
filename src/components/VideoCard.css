@@ -3,12 +3,16 @@
   flex-direction: column;
   cursor: pointer;
 }
-
 .video-thumbnail-link {
   display: block;
   text-decoration: none;
+  width: 100%;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
 }
-
 .video-thumbnail {
   width: 100%;
   aspect-ratio: 16 / 9;
@@ -16,14 +20,12 @@
   border-radius: 12px;
   background: #272727;
 }
-
 .video-thumbnail.placeholder {
   display: flex;
   align-items: center;
   justify-content: center;
   background: linear-gradient(135deg, #3a3a3a, #1a1a1a);
 }
-
 .video-thumbnail.placeholder span {
   width: 64px;
   height: 64px;
@@ -36,13 +38,11 @@
   font-weight: 700;
   color: #fff;
 }
-
 .video-info {
   display: flex;
   gap: 12px;
   padding: 12px 0;
 }
-
 .channel-avatar {
   width: 36px;
   height: 36px;
@@ -56,12 +56,10 @@
   font-size: 14px;
   font-weight: 600;
 }
-
 .video-meta {
   flex: 1;
   min-width: 0;
 }
-
 .video-title {
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -73,12 +71,16 @@
   line-height: 1.4;
   text-decoration: none;
   margin: 0 0 4px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
 }
-
 .video-title:hover {
   color: #fff;
 }
-
 .video-channel,
 .video-date {
   margin: 0;
@@ -86,7 +88,6 @@
   font-size: 14px;
   line-height: 1.4;
 }
-
 .video-channel {
   margin-bottom: 2px;
 }
