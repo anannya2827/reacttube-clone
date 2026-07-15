@@ -17,12 +17,9 @@ function getInitial(name) {
 export default function VideoCard({ video }) {
   return (
     <article className="video-card">
-      <a
-        href={`https://www.youtube.com/watch?v=${video.id}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="video-thumbnail-link"
-      >
+      
+      <Link to={`/watch/${video.id}`}>
+        
         {video.thumbnail ? (
           <img src={video.thumbnail} alt={video.title} className="video-thumbnail" loading="lazy" />
         ) : (
@@ -35,13 +32,9 @@ export default function VideoCard({ video }) {
       <div className="video-info">
         <div className="channel-avatar">{getInitial(video.channelTitle)}</div>
         <div className="video-meta">
-          <a
-            href={`https://www.youtube.com/watch?v=${video.id}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="video-title"
-            title={video.title}
-          >
+          
+         <Link to={`/watch/${video.id}`}>
+           
             {video.title}
           </a>
           <p className="video-channel">{video.channelTitle}</p>
