@@ -1,7 +1,7 @@
 import VideoCard from './VideoCard';
 import './VideoGrid.css';
 
-export default function VideoGrid({ videos, loading, error }) {
+export default function VideoGrid({ videos, loading, error, onVideoSelect }) {
   if (loading) {
     return (
       <div className="video-grid-state">
@@ -30,7 +30,7 @@ export default function VideoGrid({ videos, loading, error }) {
   return (
     <div className="video-grid">
       {videos.map((video) => (
-        <VideoCard key={video.id} video={video} />
+        <VideoCard key={video.id} video={video} onSelect={onVideoSelect} />
       ))}
     </div>
   );
