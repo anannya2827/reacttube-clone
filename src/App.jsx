@@ -3,6 +3,7 @@ import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 import CategoryChips from './components/CategoryChips';
 import VideoGrid from './components/VideoGrid';
+import WatchPage from './components/WatchPage';
 import {
   CATEGORY_QUERIES,
   DEFAULT_VIDEO_ID,
@@ -19,6 +20,7 @@ export default function App() {
   const [videos, setVideos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [selectedVideo, setSelectedVideo] = useState(null);
 
   const loadVideos = useCallback(async (category, query = '') => {
     setLoading(true);
@@ -52,6 +54,7 @@ export default function App() {
   const handleCategorySelect = (category) => {
     setActiveCategory(category);
     setSearchQuery('');
+    setSelectedVideo(null);
   };
 
   const handleSearchSubmit = () => {
@@ -77,8 +80,23 @@ export default function App() {
         />
 
         <main className="main-content">
-          <CategoryChips activeCategory={activeCategory} onCategorySelect={handleCategorySelect} />
-          <VideoGrid videos={videos} loading={loading} error={error} />
+          {selectedVideo ? (
+            <WatchPage
+              video={selectedVideo}
+              onVideoSelect={setSelectedVideo}
+              onBack={() => setSelectedVideo(null)}
+            />
+          ) : (
+            <>
+              <CategoryChips activeCategory={activeCategory} onCategorySelect={handleCategorySelect} />
+              <VideoGrid
+                videos={videos}
+                loading={loading}
+                error={error}
+                onVideoSelect={setSelectedVideo}
+              />
+            </>
+          )}
         </main>
       </div>
     </div>
